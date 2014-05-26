@@ -1,0 +1,8 @@
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.pdb
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\ResolveAssemblyReference.cache
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.UltrasoundImageAnalysis.resources
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Properties.Resources.resources
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\UltrasoundImageAnalysis.csproj.GenerateResource.Cache
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.exe
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.pdb

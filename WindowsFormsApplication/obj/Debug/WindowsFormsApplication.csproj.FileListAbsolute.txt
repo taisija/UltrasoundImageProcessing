@@ -1,0 +1,10 @@
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.exe
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\bin\Debug\WindowsFormsApplication.pdb
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\ResolveAssemblyReference.cache
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Form1.resources
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.Properties.Resources.resources
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.csproj.GenerateResource.Cache
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.exe
+E:\work\applications\WindowsFormsApplication\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.pdb
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.exe
+I:\work\applications\UltrasoundImageProcessing\WindowsFormsApplication\obj\Debug\WindowsFormsApplication.pdb
