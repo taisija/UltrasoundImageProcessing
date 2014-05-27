@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UltrasoundImageAnalysis));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSelectBrightness = new System.Windows.Forms.Button();
+            this.buttonZoomOutImage = new System.Windows.Forms.Button();
+            this.buttonZoomInImage = new System.Windows.Forms.Button();
+            this.buttonRectangularSelection = new System.Windows.Forms.Button();
             this.buttonColoring = new System.Windows.Forms.Button();
             this.buttonDrawContour = new System.Windows.Forms.Button();
-            this.buttonExtraction = new System.Windows.Forms.Button();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,146 +46,129 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.panelMainImage = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControlParameters = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.tabControlMainImage = new System.Windows.Forms.TabControl();
+            this.tabPageCurrentImage = new System.Windows.Forms.TabPage();
+            this.tabPageImagesList = new System.Windows.Forms.TabPage();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
-            this.panelMainImage.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tabControlParameters.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabControlMainImage.SuspendLayout();
+            this.tabPageCurrentImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonSelectBrightness);
+            this.panel1.Controls.Add(this.buttonZoomOutImage);
+            this.panel1.Controls.Add(this.buttonZoomInImage);
+            this.panel1.Controls.Add(this.buttonRectangularSelection);
             this.panel1.Controls.Add(this.buttonColoring);
             this.panel1.Controls.Add(this.buttonDrawContour);
-            this.panel1.Controls.Add(this.buttonExtraction);
             this.panel1.Location = new System.Drawing.Point(4, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(82, 197);
+            this.panel1.Size = new System.Drawing.Size(47, 262);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // buttonSelectBrightness
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(2, 117);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(36, 36);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Coloring";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonSelectBrightness.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSelectBrightness.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelectBrightness.BackgroundImage")));
+            this.buttonSelectBrightness.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonSelectBrightness.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSelectBrightness.Location = new System.Drawing.Point(2, 130);
+            this.buttonSelectBrightness.Name = "buttonSelectBrightness";
+            this.buttonSelectBrightness.Size = new System.Drawing.Size(36, 36);
+            this.buttonSelectBrightness.TabIndex = 4;
+            this.toolTip.SetToolTip(this.buttonSelectBrightness, "Select brightness");
+            this.buttonSelectBrightness.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // buttonZoomOutImage
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(40, 155);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(36, 36);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "-";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonZoomOutImage.BackColor = System.Drawing.Color.Transparent;
+            this.buttonZoomOutImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonZoomOutImage.BackgroundImage")));
+            this.buttonZoomOutImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonZoomOutImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonZoomOutImage.Location = new System.Drawing.Point(2, 172);
+            this.buttonZoomOutImage.Name = "buttonZoomOutImage";
+            this.buttonZoomOutImage.Size = new System.Drawing.Size(36, 36);
+            this.buttonZoomOutImage.TabIndex = 5;
+            this.toolTip.SetToolTip(this.buttonZoomOutImage, "Zoom out");
+            this.buttonZoomOutImage.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // buttonZoomInImage
             // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button6.Location = new System.Drawing.Point(2, 155);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(36, 36);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "+";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonZoomInImage.AccessibleDescription = "";
+            this.buttonZoomInImage.BackColor = System.Drawing.Color.Transparent;
+            this.buttonZoomInImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonZoomInImage.BackgroundImage")));
+            this.buttonZoomInImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonZoomInImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonZoomInImage.Location = new System.Drawing.Point(2, 214);
+            this.buttonZoomInImage.Name = "buttonZoomInImage";
+            this.buttonZoomInImage.Size = new System.Drawing.Size(36, 36);
+            this.buttonZoomInImage.TabIndex = 6;
+            this.buttonZoomInImage.Tag = "";
+            this.buttonZoomInImage.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.buttonZoomInImage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.toolTip.SetToolTip(this.buttonZoomInImage, "Zoom in");
+            this.buttonZoomInImage.UseCompatibleTextRendering = true;
+            this.buttonZoomInImage.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // buttonRectangularSelection
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(40, 117);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(36, 36);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Extraction";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(40, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(36, 36);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "del";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(2, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 36);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "hand";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(2, 41);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 36);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Coloring";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonRectangularSelection.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRectangularSelection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRectangularSelection.BackgroundImage")));
+            this.buttonRectangularSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonRectangularSelection.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRectangularSelection.Location = new System.Drawing.Point(2, 3);
+            this.buttonRectangularSelection.Name = "buttonRectangularSelection";
+            this.buttonRectangularSelection.Size = new System.Drawing.Size(36, 36);
+            this.buttonRectangularSelection.TabIndex = 1;
+            this.toolTip.SetToolTip(this.buttonRectangularSelection, "Rectangular selection");
+            this.buttonRectangularSelection.UseVisualStyleBackColor = false;
             // 
             // buttonColoring
             // 
+            this.buttonColoring.BackColor = System.Drawing.Color.Transparent;
+            this.buttonColoring.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonColoring.BackgroundImage")));
+            this.buttonColoring.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonColoring.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonColoring.Location = new System.Drawing.Point(40, 79);
+            this.buttonColoring.Location = new System.Drawing.Point(2, 87);
             this.buttonColoring.Name = "buttonColoring";
             this.buttonColoring.Size = new System.Drawing.Size(36, 36);
-            this.buttonColoring.TabIndex = 2;
-            this.buttonColoring.Text = "Coloring";
-            this.buttonColoring.UseVisualStyleBackColor = true;
+            this.buttonColoring.TabIndex = 3;
+            this.toolTip.SetToolTip(this.buttonColoring, "View in colors");
+            this.buttonColoring.UseVisualStyleBackColor = false;
             // 
             // buttonDrawContour
             // 
+            this.buttonDrawContour.BackColor = System.Drawing.Color.Transparent;
+            this.buttonDrawContour.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDrawContour.BackgroundImage")));
+            this.buttonDrawContour.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonDrawContour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonDrawContour.Location = new System.Drawing.Point(2, 79);
+            this.buttonDrawContour.Location = new System.Drawing.Point(2, 45);
             this.buttonDrawContour.Name = "buttonDrawContour";
             this.buttonDrawContour.Size = new System.Drawing.Size(36, 36);
-            this.buttonDrawContour.TabIndex = 1;
-            this.buttonDrawContour.Text = "Draw contour";
-            this.buttonDrawContour.UseVisualStyleBackColor = true;
-            // 
-            // buttonExtraction
-            // 
-            this.buttonExtraction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonExtraction.Location = new System.Drawing.Point(40, 41);
-            this.buttonExtraction.Name = "buttonExtraction";
-            this.buttonExtraction.Size = new System.Drawing.Size(36, 36);
-            this.buttonExtraction.TabIndex = 0;
-            this.buttonExtraction.Text = "Extraction";
-            this.buttonExtraction.UseVisualStyleBackColor = true;
+            this.buttonDrawContour.TabIndex = 2;
+            this.toolTip.SetToolTip(this.buttonDrawContour, "Draw contour");
+            this.buttonDrawContour.UseVisualStyleBackColor = false;
             // 
             // menuStripMain
             // 
@@ -257,6 +238,12 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.helpToolStripMenuItem.Text = "Settings";
             // 
+            // helpToolStripMenuItem1
+            // 
+            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem1.Text = "Help";
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -271,42 +258,28 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(57, 17);
-            this.toolStripStatusLabel1.Text = "date:time";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(55, 17);
+            this.toolStripStatusLabel1.Text = "                ";
             // 
             // toolStripProgressBar1
             // 
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 16);
             // 
-            // panelMainImage
+            // tabControlParameters
             // 
-            this.panelMainImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControlParameters.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            this.tabControlParameters.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControlParameters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMainImage.AutoScroll = true;
-            this.panelMainImage.AutoSize = true;
-            this.panelMainImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelMainImage.Controls.Add(this.pictureBoxMainImage);
-            this.panelMainImage.Location = new System.Drawing.Point(92, 27);
-            this.panelMainImage.Name = "panelMainImage";
-            this.panelMainImage.Size = new System.Drawing.Size(390, 432);
-            this.panelMainImage.TabIndex = 3;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(488, 27);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(141, 432);
-            this.tabControl1.TabIndex = 4;
+            this.tabControlParameters.Controls.Add(this.tabPage1);
+            this.tabControlParameters.Controls.Add(this.tabPage2);
+            this.tabControlParameters.Location = new System.Drawing.Point(488, 27);
+            this.tabControlParameters.Multiline = true;
+            this.tabControlParameters.Name = "tabControlParameters";
+            this.tabControlParameters.SelectedIndex = 0;
+            this.tabControlParameters.Size = new System.Drawing.Size(141, 432);
+            this.tabControlParameters.TabIndex = 4;
             // 
             // tabPage1
             // 
@@ -321,6 +294,15 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Histograms";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Location = new System.Drawing.Point(6, 275);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(121, 100);
+            this.panel2.TabIndex = 2;
             // 
             // panel5
             // 
@@ -354,25 +336,10 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Location = new System.Drawing.Point(4, 230);
+            this.panel3.Location = new System.Drawing.Point(4, 326);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(82, 229);
+            this.panel3.Size = new System.Drawing.Size(47, 133);
             this.panel3.TabIndex = 5;
-            // 
-            // helpToolStripMenuItem1
-            // 
-            this.helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
-            this.helpToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem1.Text = "Help";
-            // 
-            // pictureBoxMainImage
-            // 
-            this.pictureBoxMainImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxMainImage.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxMainImage.Name = "pictureBoxMainImage";
-            this.pictureBoxMainImage.Size = new System.Drawing.Size(386, 428);
-            this.pictureBoxMainImage.TabIndex = 0;
-            this.pictureBoxMainImage.TabStop = false;
             // 
             // openFileDialogImage
             // 
@@ -380,23 +347,60 @@
             this.openFileDialogImage.Filter = "\"JPG files (*.jpg)|*.jpg|All files (*.*)|*.*\"";
             this.openFileDialogImage.Title = "Open image";
             // 
-            // panel2
+            // tabControlMainImage
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Location = new System.Drawing.Point(6, 275);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 100);
-            this.panel2.TabIndex = 2;
+            this.tabControlMainImage.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.tabControlMainImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMainImage.Controls.Add(this.tabPageCurrentImage);
+            this.tabControlMainImage.Controls.Add(this.tabPageImagesList);
+            this.tabControlMainImage.Location = new System.Drawing.Point(57, 27);
+            this.tabControlMainImage.Name = "tabControlMainImage";
+            this.tabControlMainImage.SelectedIndex = 0;
+            this.tabControlMainImage.Size = new System.Drawing.Size(425, 432);
+            this.tabControlMainImage.TabIndex = 7;
+            // 
+            // tabPageCurrentImage
+            // 
+            this.tabPageCurrentImage.AutoScroll = true;
+            this.tabPageCurrentImage.Controls.Add(this.pictureBoxMainImage);
+            this.tabPageCurrentImage.Location = new System.Drawing.Point(4, 4);
+            this.tabPageCurrentImage.Name = "tabPageCurrentImage";
+            this.tabPageCurrentImage.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCurrentImage.Size = new System.Drawing.Size(417, 406);
+            this.tabPageCurrentImage.TabIndex = 0;
+            this.tabPageCurrentImage.Text = "Current Image";
+            this.tabPageCurrentImage.UseVisualStyleBackColor = true;
+            // 
+            // tabPageImagesList
+            // 
+            this.tabPageImagesList.AutoScroll = true;
+            this.tabPageImagesList.Location = new System.Drawing.Point(4, 4);
+            this.tabPageImagesList.Name = "tabPageImagesList";
+            this.tabPageImagesList.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageImagesList.Size = new System.Drawing.Size(417, 406);
+            this.tabPageImagesList.TabIndex = 1;
+            this.tabPageImagesList.Text = "Images List";
+            this.tabPageImagesList.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxMainImage
+            // 
+            this.pictureBoxMainImage.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxMainImage.Name = "pictureBoxMainImage";
+            this.pictureBoxMainImage.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxMainImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxMainImage.TabIndex = 0;
+            this.pictureBoxMainImage.TabStop = false;
             // 
             // UltrasoundImageAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 484);
+            this.Controls.Add(this.tabControlMainImage);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.panelMainImage);
+            this.Controls.Add(this.tabControlParameters);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripMain);
@@ -409,9 +413,11 @@
             this.menuStripMain.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            this.panelMainImage.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tabControlParameters.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabControlMainImage.ResumeLayout(false);
+            this.tabPageCurrentImage.ResumeLayout(false);
+            this.tabPageCurrentImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -433,27 +439,26 @@
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.Panel panelMainImage;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControlParameters;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button buttonExtraction;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonColoring;
         private System.Windows.Forms.Button buttonDrawContour;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonRectangularSelection;
+        private System.Windows.Forms.Button buttonSelectBrightness;
+        private System.Windows.Forms.Button buttonZoomOutImage;
+        private System.Windows.Forms.Button buttonZoomInImage;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
-        private System.Windows.Forms.PictureBox pictureBoxMainImage;
         private System.Windows.Forms.OpenFileDialog openFileDialogImage;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TabControl tabControlMainImage;
+        private System.Windows.Forms.TabPage tabPageCurrentImage;
+        private System.Windows.Forms.TabPage tabPageImagesList;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.PictureBox pictureBoxMainImage;
     }
 }
 
