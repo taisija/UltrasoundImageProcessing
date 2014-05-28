@@ -60,9 +60,9 @@
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
             this.tabControlMainImage = new System.Windows.Forms.TabControl();
             this.tabPageCurrentImage = new System.Windows.Forms.TabPage();
+            this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.tabPageImagesList = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -92,6 +92,7 @@
             this.buttonSelectBrightness.BackColor = System.Drawing.Color.Transparent;
             this.buttonSelectBrightness.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonSelectBrightness.BackgroundImage")));
             this.buttonSelectBrightness.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonSelectBrightness.Enabled = false;
             this.buttonSelectBrightness.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelectBrightness.Location = new System.Drawing.Point(2, 130);
             this.buttonSelectBrightness.Name = "buttonSelectBrightness";
@@ -99,12 +100,14 @@
             this.buttonSelectBrightness.TabIndex = 4;
             this.toolTip.SetToolTip(this.buttonSelectBrightness, "Select brightness");
             this.buttonSelectBrightness.UseVisualStyleBackColor = false;
+            this.buttonSelectBrightness.Click += new System.EventHandler(this.buttonSelectBrightness_Click);
             // 
             // buttonZoomOutImage
             // 
             this.buttonZoomOutImage.BackColor = System.Drawing.Color.Transparent;
             this.buttonZoomOutImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonZoomOutImage.BackgroundImage")));
             this.buttonZoomOutImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonZoomOutImage.Enabled = false;
             this.buttonZoomOutImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonZoomOutImage.Location = new System.Drawing.Point(2, 172);
             this.buttonZoomOutImage.Name = "buttonZoomOutImage";
@@ -112,6 +115,7 @@
             this.buttonZoomOutImage.TabIndex = 5;
             this.toolTip.SetToolTip(this.buttonZoomOutImage, "Zoom out");
             this.buttonZoomOutImage.UseVisualStyleBackColor = false;
+            this.buttonZoomOutImage.Click += new System.EventHandler(this.buttonZoomOutImage_Click);
             // 
             // buttonZoomInImage
             // 
@@ -119,6 +123,7 @@
             this.buttonZoomInImage.BackColor = System.Drawing.Color.Transparent;
             this.buttonZoomInImage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonZoomInImage.BackgroundImage")));
             this.buttonZoomInImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonZoomInImage.Enabled = false;
             this.buttonZoomInImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonZoomInImage.Location = new System.Drawing.Point(2, 214);
             this.buttonZoomInImage.Name = "buttonZoomInImage";
@@ -129,13 +134,15 @@
             this.buttonZoomInImage.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.toolTip.SetToolTip(this.buttonZoomInImage, "Zoom in");
             this.buttonZoomInImage.UseCompatibleTextRendering = true;
-            this.buttonZoomInImage.UseVisualStyleBackColor = false;
+            this.buttonZoomInImage.UseVisualStyleBackColor = true;
+            this.buttonZoomInImage.Click += new System.EventHandler(this.buttonZoomInImage_Click);
             // 
             // buttonRectangularSelection
             // 
             this.buttonRectangularSelection.BackColor = System.Drawing.Color.Transparent;
             this.buttonRectangularSelection.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRectangularSelection.BackgroundImage")));
             this.buttonRectangularSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonRectangularSelection.Enabled = false;
             this.buttonRectangularSelection.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonRectangularSelection.Location = new System.Drawing.Point(2, 3);
             this.buttonRectangularSelection.Name = "buttonRectangularSelection";
@@ -143,12 +150,15 @@
             this.buttonRectangularSelection.TabIndex = 1;
             this.toolTip.SetToolTip(this.buttonRectangularSelection, "Rectangular selection");
             this.buttonRectangularSelection.UseVisualStyleBackColor = false;
+            this.buttonRectangularSelection.Click += new System.EventHandler(this.buttonRectangularSelection_Click);
+            this.buttonRectangularSelection.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonRectangularSelection_KeyUp);
             // 
             // buttonColoring
             // 
             this.buttonColoring.BackColor = System.Drawing.Color.Transparent;
             this.buttonColoring.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonColoring.BackgroundImage")));
             this.buttonColoring.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonColoring.Enabled = false;
             this.buttonColoring.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonColoring.Location = new System.Drawing.Point(2, 87);
             this.buttonColoring.Name = "buttonColoring";
@@ -156,19 +166,24 @@
             this.buttonColoring.TabIndex = 3;
             this.toolTip.SetToolTip(this.buttonColoring, "View in colors");
             this.buttonColoring.UseVisualStyleBackColor = false;
+            this.buttonColoring.Click += new System.EventHandler(this.buttonColoring_Click);
             // 
             // buttonDrawContour
             // 
             this.buttonDrawContour.BackColor = System.Drawing.Color.Transparent;
             this.buttonDrawContour.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDrawContour.BackgroundImage")));
             this.buttonDrawContour.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonDrawContour.Enabled = false;
             this.buttonDrawContour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonDrawContour.Location = new System.Drawing.Point(2, 45);
             this.buttonDrawContour.Name = "buttonDrawContour";
             this.buttonDrawContour.Size = new System.Drawing.Size(36, 36);
             this.buttonDrawContour.TabIndex = 2;
+            this.buttonDrawContour.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.buttonDrawContour.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.toolTip.SetToolTip(this.buttonDrawContour, "Draw contour");
             this.buttonDrawContour.UseVisualStyleBackColor = false;
+            this.buttonDrawContour.Click += new System.EventHandler(this.buttonDrawContour_Click);
             // 
             // menuStripMain
             // 
@@ -373,6 +388,19 @@
             this.tabPageCurrentImage.Text = "Current Image";
             this.tabPageCurrentImage.UseVisualStyleBackColor = true;
             // 
+            // pictureBoxMainImage
+            // 
+            this.pictureBoxMainImage.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxMainImage.Name = "pictureBoxMainImage";
+            this.pictureBoxMainImage.Size = new System.Drawing.Size(300, 300);
+            this.pictureBoxMainImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxMainImage.TabIndex = 0;
+            this.pictureBoxMainImage.TabStop = false;
+            this.pictureBoxMainImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMainImage_MouseMove);
+            this.pictureBoxMainImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMainImage_MouseDown);
+            this.pictureBoxMainImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxMainImage_Paint);
+            this.pictureBoxMainImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBoxMainImage_MouseUp);
+            // 
             // tabPageImagesList
             // 
             this.tabPageImagesList.AutoScroll = true;
@@ -383,15 +411,6 @@
             this.tabPageImagesList.TabIndex = 1;
             this.tabPageImagesList.Text = "Images List";
             this.tabPageImagesList.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxMainImage
-            // 
-            this.pictureBoxMainImage.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxMainImage.Name = "pictureBoxMainImage";
-            this.pictureBoxMainImage.Size = new System.Drawing.Size(300, 300);
-            this.pictureBoxMainImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBoxMainImage.TabIndex = 0;
-            this.pictureBoxMainImage.TabStop = false;
             // 
             // UltrasoundImageAnalysis
             // 

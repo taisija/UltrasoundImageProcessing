@@ -50,6 +50,11 @@
   <ItemGroup>
     <Compile Include="Coloring.cs" />
     <Compile Include="Contour.cs" />
+    <Compile Include="ContourBuilding.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NodeFunction.cs" />
+    <Compile Include="NodesFactory.cs" />
+    <Compile Include="Processing.cs" />
     <Compile Include="UltrasoundImageAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
