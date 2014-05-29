@@ -52,9 +52,13 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.tabControlParameters = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.labelHistogramOfSelectedFragment = new System.Windows.Forms.Label();
+            this.labelHistogramOfCurrentImage = new System.Windows.Forms.Label();
+            this.panelHistogramOfSelectedFragment = new System.Windows.Forms.Panel();
+            this.listBoxPercentage = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.labelPercentage = new System.Windows.Forms.Label();
+            this.panelHistogrammOfCurrentImage = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.openFileDialogImage = new System.Windows.Forms.OpenFileDialog();
@@ -63,14 +67,20 @@
             this.pictureBoxMainImage = new System.Windows.Forms.PictureBox();
             this.tabPageImagesList = new System.Windows.Forms.TabPage();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBoxCurrentImageHistogram = new System.Windows.Forms.PictureBox();
+            this.pictureBoxRectangularFragmentHistogram = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.tabControlParameters.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panelHistogramOfSelectedFragment.SuspendLayout();
+            this.panelHistogrammOfCurrentImage.SuspendLayout();
             this.tabControlMainImage.SuspendLayout();
             this.tabPageCurrentImage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentImageHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangularFragmentHistogram)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -195,7 +205,7 @@
             this.helpToolStripMenuItem1});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(641, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(679, 24);
             this.menuStripMain.TabIndex = 1;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -266,7 +276,7 @@
             this.toolStripProgressBar1});
             this.statusStrip.Location = new System.Drawing.Point(0, 462);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(641, 22);
+            this.statusStrip.Size = new System.Drawing.Size(679, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -289,60 +299,118 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlParameters.Controls.Add(this.tabPage1);
             this.tabControlParameters.Controls.Add(this.tabPage2);
-            this.tabControlParameters.Location = new System.Drawing.Point(488, 27);
+            this.tabControlParameters.Location = new System.Drawing.Point(500, 27);
             this.tabControlParameters.Multiline = true;
             this.tabControlParameters.Name = "tabControlParameters";
             this.tabControlParameters.SelectedIndex = 0;
-            this.tabControlParameters.Size = new System.Drawing.Size(141, 432);
+            this.tabControlParameters.Size = new System.Drawing.Size(179, 432);
             this.tabControlParameters.TabIndex = 4;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.labelHistogramOfSelectedFragment);
+            this.tabPage1.Controls.Add(this.labelPercentage);
+            this.tabPage1.Controls.Add(this.labelHistogramOfCurrentImage);
+            this.tabPage1.Controls.Add(this.panelHistogramOfSelectedFragment);
+            this.tabPage1.Controls.Add(this.listBoxPercentage);
             this.tabPage1.Controls.Add(this.panel2);
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panelHistogrammOfCurrentImage);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(133, 406);
+            this.tabPage1.Size = new System.Drawing.Size(171, 406);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Histograms";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // labelHistogramOfSelectedFragment
+            // 
+            this.labelHistogramOfSelectedFragment.BackColor = System.Drawing.Color.Transparent;
+            this.labelHistogramOfSelectedFragment.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Italic);
+            this.labelHistogramOfSelectedFragment.Location = new System.Drawing.Point(11, 146);
+            this.labelHistogramOfSelectedFragment.Name = "labelHistogramOfSelectedFragment";
+            this.labelHistogramOfSelectedFragment.Size = new System.Drawing.Size(151, 21);
+            this.labelHistogramOfSelectedFragment.TabIndex = 14;
+            this.labelHistogramOfSelectedFragment.Text = "Histogram of selected region";
+            this.labelHistogramOfSelectedFragment.Visible = false;
+            // 
+            // labelHistogramOfCurrentImage
+            // 
+            this.labelHistogramOfCurrentImage.BackColor = System.Drawing.Color.Transparent;
+            this.labelHistogramOfCurrentImage.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Italic);
+            this.labelHistogramOfCurrentImage.Location = new System.Drawing.Point(11, 6);
+            this.labelHistogramOfCurrentImage.Name = "labelHistogramOfCurrentImage";
+            this.labelHistogramOfCurrentImage.Size = new System.Drawing.Size(151, 20);
+            this.labelHistogramOfCurrentImage.TabIndex = 13;
+            this.labelHistogramOfCurrentImage.Text = "Histogram of current image";
+            this.labelHistogramOfCurrentImage.Visible = false;
+            // 
+            // panelHistogramOfSelectedFragment
+            // 
+            this.panelHistogramOfSelectedFragment.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelHistogramOfSelectedFragment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelHistogramOfSelectedFragment.Controls.Add(this.pictureBoxRectangularFragmentHistogram);
+            this.panelHistogramOfSelectedFragment.Location = new System.Drawing.Point(7, 167);
+            this.panelHistogramOfSelectedFragment.Name = "panelHistogramOfSelectedFragment";
+            this.panelHistogramOfSelectedFragment.Size = new System.Drawing.Size(157, 108);
+            this.panelHistogramOfSelectedFragment.TabIndex = 1;
+            this.panelHistogramOfSelectedFragment.Visible = false;
+            // 
+            // listBoxPercentage
+            // 
+            this.listBoxPercentage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxPercentage.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Italic);
+            this.listBoxPercentage.FormattingEnabled = true;
+            this.listBoxPercentage.ItemHeight = 15;
+            this.listBoxPercentage.Location = new System.Drawing.Point(7, 308);
+            this.listBoxPercentage.Name = "listBoxPercentage";
+            this.listBoxPercentage.Size = new System.Drawing.Size(157, 77);
+            this.listBoxPercentage.TabIndex = 10;
+            this.toolTip.SetToolTip(this.listBoxPercentage, "100% - it\'s total area of selected fragment. \r\nFragments are colored according to" +
+                    " their \r\nechogenicity.");
+            this.listBoxPercentage.Visible = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Location = new System.Drawing.Point(6, 275);
+            this.panel2.Location = new System.Drawing.Point(7, 369);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(121, 100);
+            this.panel2.Size = new System.Drawing.Size(136, 26);
             this.panel2.TabIndex = 2;
+            this.panel2.Visible = false;
             // 
-            // panel5
+            // labelPercentage
             // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Location = new System.Drawing.Point(6, 142);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(121, 100);
-            this.panel5.TabIndex = 1;
+            this.labelPercentage.BackColor = System.Drawing.Color.Transparent;
+            this.labelPercentage.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Italic);
+            this.labelPercentage.Location = new System.Drawing.Point(11, 286);
+            this.labelPercentage.Name = "labelPercentage";
+            this.labelPercentage.Size = new System.Drawing.Size(152, 19);
+            this.labelPercentage.TabIndex = 12;
+            this.labelPercentage.Text = "Area of each region occupies:";
+            this.toolTip.SetToolTip(this.labelPercentage, "100% - it\'s total area of selected fragment. \r\nFragments are colored according to" +
+                    " their \r\nechogenicity. See help for more information.");
+            this.labelPercentage.Visible = false;
             // 
-            // panel4
+            // panelHistogrammOfCurrentImage
             // 
-            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Location = new System.Drawing.Point(6, 13);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(121, 100);
-            this.panel4.TabIndex = 0;
+            this.panelHistogrammOfCurrentImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelHistogrammOfCurrentImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelHistogrammOfCurrentImage.Controls.Add(this.pictureBoxCurrentImageHistogram);
+            this.panelHistogrammOfCurrentImage.Location = new System.Drawing.Point(7, 28);
+            this.panelHistogrammOfCurrentImage.Name = "panelHistogrammOfCurrentImage";
+            this.panelHistogrammOfCurrentImage.Size = new System.Drawing.Size(157, 108);
+            this.panelHistogrammOfCurrentImage.TabIndex = 0;
+            this.panelHistogrammOfCurrentImage.Visible = false;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(133, 406);
+            this.tabPage2.Size = new System.Drawing.Size(171, 406);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Contours";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -373,7 +441,7 @@
             this.tabControlMainImage.Location = new System.Drawing.Point(57, 27);
             this.tabControlMainImage.Name = "tabControlMainImage";
             this.tabControlMainImage.SelectedIndex = 0;
-            this.tabControlMainImage.Size = new System.Drawing.Size(425, 432);
+            this.tabControlMainImage.Size = new System.Drawing.Size(437, 432);
             this.tabControlMainImage.TabIndex = 7;
             // 
             // tabPageCurrentImage
@@ -383,7 +451,7 @@
             this.tabPageCurrentImage.Location = new System.Drawing.Point(4, 4);
             this.tabPageCurrentImage.Name = "tabPageCurrentImage";
             this.tabPageCurrentImage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageCurrentImage.Size = new System.Drawing.Size(417, 406);
+            this.tabPageCurrentImage.Size = new System.Drawing.Size(429, 406);
             this.tabPageCurrentImage.TabIndex = 0;
             this.tabPageCurrentImage.Text = "Current Image";
             this.tabPageCurrentImage.UseVisualStyleBackColor = true;
@@ -407,16 +475,37 @@
             this.tabPageImagesList.Location = new System.Drawing.Point(4, 4);
             this.tabPageImagesList.Name = "tabPageImagesList";
             this.tabPageImagesList.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageImagesList.Size = new System.Drawing.Size(417, 406);
+            this.tabPageImagesList.Size = new System.Drawing.Size(429, 406);
             this.tabPageImagesList.TabIndex = 1;
             this.tabPageImagesList.Text = "Images List";
             this.tabPageImagesList.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxCurrentImageHistogram
+            // 
+            this.pictureBoxCurrentImageHistogram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxCurrentImageHistogram.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxCurrentImageHistogram.Name = "pictureBoxCurrentImageHistogram";
+            this.pictureBoxCurrentImageHistogram.Size = new System.Drawing.Size(153, 104);
+            this.pictureBoxCurrentImageHistogram.TabIndex = 0;
+            this.pictureBoxCurrentImageHistogram.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBoxCurrentImageHistogram, "Histogram of current image");
+            this.pictureBoxCurrentImageHistogram.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxCurrentImageHistogram_Paint);
+            // 
+            // pictureBoxRectangularFragmentHistogram
+            // 
+            this.pictureBoxRectangularFragmentHistogram.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxRectangularFragmentHistogram.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxRectangularFragmentHistogram.Name = "pictureBoxRectangularFragmentHistogram";
+            this.pictureBoxRectangularFragmentHistogram.Size = new System.Drawing.Size(153, 104);
+            this.pictureBoxRectangularFragmentHistogram.TabIndex = 0;
+            this.pictureBoxRectangularFragmentHistogram.TabStop = false;
+            this.toolTip.SetToolTip(this.pictureBoxRectangularFragmentHistogram, "Histogram of selected region");
             // 
             // UltrasoundImageAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 484);
+            this.ClientSize = new System.Drawing.Size(679, 484);
             this.Controls.Add(this.tabControlMainImage);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.tabControlParameters);
@@ -434,10 +523,14 @@
             this.statusStrip.PerformLayout();
             this.tabControlParameters.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.panelHistogramOfSelectedFragment.ResumeLayout(false);
+            this.panelHistogrammOfCurrentImage.ResumeLayout(false);
             this.tabControlMainImage.ResumeLayout(false);
             this.tabPageCurrentImage.ResumeLayout(false);
             this.tabPageCurrentImage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMainImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentImageHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRectangularFragmentHistogram)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,8 +557,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonColoring;
         private System.Windows.Forms.Button buttonDrawContour;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelHistogrammOfCurrentImage;
+        private System.Windows.Forms.Panel panelHistogramOfSelectedFragment;
         private System.Windows.Forms.Button buttonRectangularSelection;
         private System.Windows.Forms.Button buttonSelectBrightness;
         private System.Windows.Forms.Button buttonZoomOutImage;
@@ -478,6 +571,12 @@
         private System.Windows.Forms.TabPage tabPageImagesList;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.PictureBox pictureBoxMainImage;
+        private System.Windows.Forms.Label labelPercentage;
+        private System.Windows.Forms.ListBox listBoxPercentage;
+        private System.Windows.Forms.Label labelHistogramOfCurrentImage;
+        private System.Windows.Forms.Label labelHistogramOfSelectedFragment;
+        private System.Windows.Forms.PictureBox pictureBoxCurrentImageHistogram;
+        private System.Windows.Forms.PictureBox pictureBoxRectangularFragmentHistogram;
     }
 }
 

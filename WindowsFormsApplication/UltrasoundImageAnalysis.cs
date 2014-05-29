@@ -36,6 +36,14 @@ namespace WindowsFormsApplication
         private bool movingEditFlag;
         private Coloring coloring;
         private int numOfContourPoints = 10;
+        //histograms
+        private double[] hist;
+        private double maxHistValue = 0;
+        private Bitmap histMainBitmap;
+        private Bitmap subImageRectSelection;
+        private double[] histRectSelection;
+        private double maxRectSelectionHistValue = 0;
+        private Bitmap histMainBitmapRectSelection;
 
         public UltrasoundImageAnalysis()
         {
@@ -68,7 +76,17 @@ namespace WindowsFormsApplication
                     buttonSelectBrightness.Enabled = false;
                     buttonZoomOutImage.Enabled = false;
                     buttonZoomInImage.Enabled = false;
-                    //percentageListBox.Items.Clear();
+                    listBoxPercentage.Items.Clear();
+                    labelHistogramOfCurrentImage.Visible = true;
+                    panelHistogrammOfCurrentImage.Visible = true;
+                    labelHistogramOfSelectedFragment.Visible = false;
+                    panelHistogramOfSelectedFragment.Visible = false;
+                    labelPercentage.Visible = false;
+                    listBoxPercentage.Visible = false;
+                    paintHistogram(Coloring.calculateHistogram(bitmap), 
+                        Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(bitmap)),
+                        pictureBoxCurrentImageHistogram, histMainBitmap);
+                    pictureBoxCurrentImageHistogram.Invalidate();
                 }
                 catch (Exception exc)
                 {
@@ -82,6 +100,10 @@ namespace WindowsFormsApplication
         {
             extractionFlag = true;
             buttonDrawContour.Enabled = false;
+            if (!labelHistogramOfSelectedFragment.Visible)
+                pictureBoxRectangularFragmentHistogram.Image = null;
+            labelHistogramOfSelectedFragment.Visible = true;
+            panelHistogramOfSelectedFragment.Visible = true;
         }
 
         private void buttonDrawContour_Click(object sender, EventArgs e)
@@ -145,6 +167,16 @@ namespace WindowsFormsApplication
             buttonColoring.Enabled = false;
    //         calculateButton.Enabled = true;
    //         saveToolStripMenuItem.Enabled = true;
+            listBoxPercentage.Items.Clear();
+            coloring.CalculateHistogramAndPercents(4);
+            for (int i = 0; i < coloring.GetPercentsPartsNum(); i++)
+                listBoxPercentage.Items.Add("        " + coloring.GetIntervalOfPart(i) + " - " + (Math.Round(coloring.GetPercents(i) * 100) / 100).ToString() + "%");
+            //savePercentageToolStripMenuItem.Enabled = true;
+            //saveAllToolStripMenuItem.Enabled = true;
+            labelPercentage.Visible = true;
+            listBoxPercentage.Visible = true;
+            tabControlParameters.Update();
+            this.Refresh();
             this.Invalidate();
         }
 
@@ -160,7 +192,9 @@ namespace WindowsFormsApplication
 
         private void buttonZoomInImage_Click(object sender, EventArgs e)
         {
-
+            ///Graphics gr = Graphics.FromImage(pictureBox1.Image);
+            //увеличиваем в 4 раза
+            ///gr.ScaleTransform(1 * 4, 1 * 4);
         }
         //backgroung plan for contour, if plan value > 0
         //it indicates dot of contour
@@ -216,34 +250,91 @@ namespace WindowsFormsApplication
                 {
                     Graphics gr = pictureBoxMainImage.CreateGraphics();
                     if ((previousPoint.X < e.X) && (e.Y > previousPoint.Y))
+                    {
                         gr.DrawRectangle(penRect, previousPoint.X, previousPoint.Y, e.X - previousPoint.X, e.Y - previousPoint.Y);
+                        subImageRectSelection = Coloring.RectangleCut(previousPoint.X, previousPoint.Y, 
+                            e.X - previousPoint.X, e.Y - previousPoint.Y, bitmap);
+                        paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                        Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                        pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                    }
                     else
                         if ((previousPoint.X < e.X) && (e.Y < previousPoint.Y))
+                        {
                             gr.DrawRectangle(penRect, previousPoint.X, e.Y, e.X - previousPoint.X, previousPoint.Y - e.Y);
+                            subImageRectSelection = Coloring.RectangleCut(previousPoint.X, e.Y,
+                                e.X - previousPoint.X, previousPoint.Y - e.Y, bitmap);
+                            paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                            Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                            pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                        }
                         else
                             if ((previousPoint.X > e.X) && (e.Y < previousPoint.Y))
+                            {
                                 gr.DrawRectangle(penRect, e.X, e.Y, previousPoint.X - e.X, previousPoint.Y - e.Y);
+                                subImageRectSelection = Coloring.RectangleCut(e.X, e.Y, previousPoint.X - e.X,
+                                    previousPoint.Y - e.Y, bitmap);
+                                paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                                Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                                pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                            }
                             else
+                            {
                                 gr.DrawRectangle(penRect, e.X, previousPoint.Y, previousPoint.X - e.X, e.Y - previousPoint.Y);
+                                subImageRectSelection = Coloring.RectangleCut(e.X, previousPoint.Y,
+                                    previousPoint.X - e.X, e.Y - previousPoint.Y, bitmap);
+                                paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                                Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                                pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                            }
                     gr.Dispose();
                     endPoint = e.Location;
                     contourEnteredFlag = true;
                     extractionPaintFlag = false;
+                    buttonRectangularSelection.Focus();
                     count = 1;
                 }
                 else
                 {
                     Graphics gr = pictureBoxMainImage.CreateGraphics();
                     if ((previousPoint.X < endPoint.X) && (endPoint.Y > previousPoint.Y))
+                    {
                         gr.DrawRectangle(penRect, previousPoint.X, previousPoint.Y, endPoint.X - previousPoint.X, endPoint.Y - previousPoint.Y);
+                        subImageRectSelection = Coloring.RectangleCut(previousPoint.X, previousPoint.Y,
+                            endPoint.X - previousPoint.X, endPoint.Y - previousPoint.Y, bitmap);
+                        paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                        Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                        pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                    }
                     else
                         if ((previousPoint.X < endPoint.X) && (endPoint.Y < previousPoint.Y))
+                        {
                             gr.DrawRectangle(penRect, previousPoint.X, endPoint.Y, endPoint.X - previousPoint.X, previousPoint.Y - endPoint.Y);
+                            subImageRectSelection = Coloring.RectangleCut(previousPoint.X, endPoint.Y,
+                                endPoint.X - previousPoint.X, previousPoint.Y - endPoint.Y, bitmap);
+                            paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                            Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                            pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                        }
                         else
                             if ((previousPoint.X > endPoint.X) && (endPoint.Y < previousPoint.Y))
+                            {
                                 gr.DrawRectangle(penRect, endPoint.X, endPoint.Y, previousPoint.X - endPoint.X, previousPoint.Y - endPoint.Y);
+                                subImageRectSelection = Coloring.RectangleCut(endPoint.X, endPoint.Y,
+                                    previousPoint.X - endPoint.X, previousPoint.Y - endPoint.Y, bitmap);
+                                paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                                Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                                pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                            }
                             else
+                            {
                                 gr.DrawRectangle(penRect, endPoint.X, previousPoint.Y, previousPoint.X - endPoint.X, endPoint.Y - previousPoint.Y);
+                                subImageRectSelection = Coloring.RectangleCut(endPoint.X, previousPoint.Y,
+                                    previousPoint.X - endPoint.X, endPoint.Y - previousPoint.Y, bitmap);
+                                paintHistogram(Coloring.calculateHistogram(subImageRectSelection),
+                                Coloring.calculateMaxHistogramValue(Coloring.calculateHistogram(subImageRectSelection)),
+                                pictureBoxRectangularFragmentHistogram, histMainBitmapRectSelection);
+                            }
                     gr.Dispose();
                     contourEnteredFlag = true;
                     extractionPaintFlag = false;
@@ -427,6 +518,7 @@ namespace WindowsFormsApplication
                 extractionFlag = false;
                 if ((previousPoint.X < endPoint.X) && (endPoint.Y > previousPoint.Y))
                     bitmap = imProcessing.RectangleCut(previousPoint.X, previousPoint.Y, endPoint.X - previousPoint.X, endPoint.Y - previousPoint.Y, bitmap);
+
                 else
                     if ((previousPoint.X < endPoint.X) && (endPoint.Y < previousPoint.Y))
                     {
@@ -443,6 +535,50 @@ namespace WindowsFormsApplication
                 buttonRectangularSelection.Enabled = false;
                 contourEnteredFlag = false;
             }
+        }
+
+        private void paintHistogram(double[] Histogram, double maxHistogramValue, PictureBox PicBox, Bitmap histBitmap)
+        {
+            histBitmap = new Bitmap(PicBox.Width, PicBox.Height);
+            Graphics g = Graphics.FromImage(histBitmap);
+            //Graphics g = PicBox.CreateGraphics();
+            int histLen = Histogram.Length;
+            int xAxesLength = PicBox.Width;
+            int yAxesLength = PicBox.Height;
+            int xField = xAxesLength / 20;
+            int yField = yAxesLength / 20;
+            int histXAxesLength = xAxesLength - xField - xField;
+            int histYAxesLength = yAxesLength - yField - yField;
+            double proportionInX = (double)(histLen) / (double)(histXAxesLength);
+            double proportionInY;
+            proportionInY = (maxHistogramValue > 0) ? ((1.0) / maxHistogramValue) : 0;
+            Color color = Color.Black;
+            Pen pen = new Pen(color, 1);
+            for (int i = 0; i < histXAxesLength; i++)
+            {
+                g.DrawLine(pen, new Point(i + xField, 
+                    yAxesLength - yField - (int)(proportionInY * histYAxesLength * Histogram[(int)(i * proportionInX)])),
+                    new Point(i + xField, yAxesLength - yField));
+            }
+            g.DrawLine(pen, new Point(xField - 2, yField), new Point(xField - 2, yAxesLength - yField + 2));
+            g.DrawLine(pen, new Point(xField - 2, yAxesLength - yField + 2), 
+                new Point(histXAxesLength + xField - 2, yAxesLength - yField + 2));
+            PicBox.Image = histBitmap;
+        }
+        
+        private void pictureBoxCurrentImageHistogram_Paint(object sender, PaintEventArgs e)
+        {/*
+            if (hist != null)
+            {
+                pictureBoxCurrentImageHistogram.Image = histMainBitmap;
+                //paintHistogram(hist, maxHistValue, pictureBoxCurrentImageHistogram);
+            }
+            else
+            {
+                hist = Coloring.calculateHistogram(bitmap);
+                maxHistValue = Coloring.calculateMaxHistogramValue(hist);
+                paintHistogram(hist, maxHistValue, pictureBoxCurrentImageHistogram, histMainBitmap);
+            }*/
         }
     }
 }

@@ -38,6 +38,55 @@ namespace WindowsFormsApplication
             max = 0;
             histogramSumm = 0;
         }
+        public static double[] calculateHistogram(Bitmap bitmap)
+        {
+            double[] hist = new double[256];
+            int histSumm = 0;
+            Color c;
+            for (int i = 0; i < 256; i++)
+            {
+                hist[i] = 0;
+            }
+            if (bitmap != null)
+            {
+                for (int i = 0; i < bitmap.Width; i++)
+                    for (int j = 0; j < bitmap.Height; j++)
+                    {
+                        c = bitmap.GetPixel(i, j);
+                        hist[c.G] += 1;
+                        histSumm++;
+                    }
+                for (int i = 0; i < 256; i++)
+                {
+                    hist[i] = hist[i] / (double)histSumm;
+                }
+            }
+            return hist;
+        }
+
+        public static double calculateMaxHistogramValue(double[] Histogram)
+        {
+            double max = 0;
+            for (int i = 0; i < 256; i++)
+            {
+                if (Histogram[i] > max) max = Histogram[i];
+            }
+            return max;
+        }
+
+        public static Bitmap RectangleCut(int x, int y, int width, int height, Bitmap bitmap)
+        {
+            if (width != 0 && height != 0)
+            {
+                Bitmap currentBitmap = new Bitmap(width, height);
+                for (int i = 0; i < height; i++)
+                    for (int j = 0; j < width; j++)
+                        currentBitmap.SetPixel(j, i, bitmap.GetPixel(x + j, y + i));
+                return currentBitmap;
+            }
+            else
+                return null;
+        }
 
         private void SearchInternalArea(Bitmap bitmap, Color color)
         {
